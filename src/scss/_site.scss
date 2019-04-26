@@ -1,0 +1,334 @@
+$text: #272727;
+
+@mixin blockBg($type, $left, $top) {
+    @if($type == 'a') {
+        content: url(../../img/block_ba.png);
+    }
+    @if($type == 'b') {
+        content: url(../../img/block_bb.png);
+    }
+    @if($type == 'v') {
+        content: url(../../img/block_bv.png);
+    }
+    left: $left;
+    top: $top;
+    position: absolute;
+    z-index: -1;
+    @media (max-width: 768px) {
+        display: none;
+    }
+}
+
+.is--bg-block {
+    position: relative;
+    &.is--b {
+        &::after {
+            @include blockBg('b', 10%, 50px);
+        }
+    }
+    &.is--v {
+        &::after {
+            @include blockBg('v', 57%, 105%);
+        }
+    }
+    &.is--a1 {
+        &::before {
+            @include blockBg('a', 73%, -16%);
+        }
+    }
+    &.is--a2 {
+        &::after {
+            @include blockBg('a', 55%, 103%);
+        }
+    }
+}
+
+.__dd {
+    position: relative;
+    overflow: hidden;
+    &::after {
+        content: '';
+        width: 33px;
+        height: calc(100% - 100vh);
+        background: url(../../img/rightline.png);
+        background-repeat: repeat-y;
+        position: absolute;
+        right: 8%;
+        top: 100vh;
+        z-index: -1;
+    }
+    &__carousel {
+        position: relative;
+        &__text {
+            position: absolute;
+            display: flex;
+            justify-content: center;
+            width: 100%;
+            padding-top: 100px;
+            z-index: 999;
+            &__inner {
+                text-align: center;
+                display: flex;
+                flex-wrap: wrap;
+                justify-content: center;
+                width: 630px;
+                span {
+                    font-weight: 500;
+                    font-size: 36px;
+                    line-height: 36px;
+                    color: #272727;
+                    display: block;
+                    background: #fff;
+                    padding: 10px 20px;
+                    &.is--one,
+                    &.is--two {
+                        min-width: 630px;
+                        width: 100%;
+                    }
+                }
+            }
+        }
+        &__item {
+            height: 100vh !important;
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-position: center;
+        }
+        &__controls {
+            button {
+                position: absolute;
+                top: 50%;
+                border: none;
+                background: rgba(#fff, .2);
+                border-radius: 100%;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                width: 78px;
+                height: 78px;
+                outline: none;
+                transition: .25s all ease;
+                cursor: pointer;
+                margin-top: -40px;
+                &:hover {
+                    background: rgba(#fff, .5);
+                }
+                svg {
+                    width: 25px;
+                    height: 33px;
+                    fill: #fff;
+                }
+                &.is--prev {
+                    left: 15px;
+                    transform: rotate(180deg);
+                }
+                &.is--next {
+                    right: 15px;
+                }
+            }
+        }
+    }
+    &__text {
+        padding-top: 100px;
+        padding-bottom: 120px;
+        &__inner {
+            @extend %container;
+            max-width: 1120px;
+        }
+        &__heading {
+            font-weight: 500;
+            font-size: 24px;
+            line-height: 28px;
+            color: $text;
+            margin-bottom: 25px;
+        }
+        &__content {
+            p {
+                margin: 0 0 40px 0;
+                color: $text;
+                font-size: 18px;
+                line-height: 21px;
+            }
+            &:last-child {
+                p {
+                    margin-bottom: 0;
+                }
+            }
+        }
+    }
+    &__photos {
+        background: #fff;
+        &__container {
+            @extend %container;
+            overflow: hidden;
+        }
+        &__blocks {
+            display: flex;
+            flex-wrap: wrap;
+            margin: 0 -15px;
+        }
+        &__block {
+            padding: 15px;
+            width: 100%;
+            &.is--w50 {
+                max-width: 50%;
+            }
+            &.is--w100 {
+                max-width: 100%;
+            }
+        }
+    }
+    &__ib {
+        padding-bottom: 100px;
+        padding-top: 100px;
+        &__inner {
+            @extend %container;
+            display: flex;
+            align-items: center;
+        }
+        &__right {
+            max-width: 500px;
+            color: $text;
+            font-size: 18px;
+            line-height: 21px;
+        }
+        &.is--one {
+            .__dd__ib {
+                &__left {
+                    margin: 0 100px 0 85px;
+                    img {
+                        max-width: 608px;
+                        min-width: 608px;
+                    }
+                }
+            }
+        }
+        &.is--two {
+            .__dd__ib {
+                &__left {
+                    margin: 0 80px 0 0;
+                    img {
+                        max-width: 760px;
+                        min-width: 760px;
+                    }
+                }
+            }
+        }
+    }
+}
+
+@media (max-width: 1600px) {
+    .__dd {
+        &::after {
+            right: 5%;
+        }
+    }
+}
+
+@media (max-width: 1300px) {
+    .__dd {
+        &::after {
+            content: none;
+        }
+    }
+}
+
+@media (max-width: 1200px) {
+    .__dd {
+        padding-bottom: 50px;
+        &__ib {
+            &__left {
+                margin: 0 100px 0 0 !important;
+                img {
+                    max-width: 100% !important;
+                    min-width: 0% !important;
+                }
+            }
+        }
+    }
+}
+
+@media (max-width: 768px) {
+    .__dd {
+        &__carousel {
+            &__text {
+                padding-top: 50px;
+                &__inner {
+                    width: 280px;
+                    span {
+                        font-size: 16px;
+                        line-height: 16px;
+                        padding-left: 10px;
+                        padding-right: 10px;
+                        padding-top: 3px;
+                        padding-bottom: 3px;
+                        &.is--one,
+                        &.is--two {
+                            min-width: 280px;
+                        }
+                    }
+                }
+            }
+            &__controls {
+                button {
+                    width: 50px;
+                    height: 50px;
+                    svg {
+                        height: 22px;
+                    }
+                }
+            }
+        }
+        &__text {
+            padding-top: 50px;
+            padding-bottom: 30px;
+            &__heading {
+                font-size: 20px;
+                line-height: 20px;
+                margin-bottom: 15px;
+            }
+            &__content {
+                p {
+                    font-size: 15px;
+                    margin-bottom: 20px;
+                }
+            }
+        }
+        &__photos {
+            &__blocks {
+                margin: 0 -5px;
+            }
+            &__block {
+                padding: 5px;
+                &.is--w50 {
+                    max-width: 100%;
+                }
+            }
+        }
+        &__ib {
+            padding-bottom: 30px;
+            padding-top: 30px;
+            &__inner {
+                flex-wrap: wrap;
+            }
+            &__left {
+                margin: 0 50px 50px 50px !important;
+            }
+            &__right {
+                max-width: 100%;
+                font-size: 15px;
+                line-height: 18px;
+            }
+        }
+    }
+}
+
+@media (max-width: 500px) {
+    .__dd {
+        &__ib {
+            &__left {
+                margin: 0 0 30px 0 !important;
+            }
+        }
+    }
+}
