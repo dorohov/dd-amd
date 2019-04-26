@@ -9,10 +9,19 @@
 </head>
 <body>
     <div class="__dd">
-        
+        <div class="background__one __dd--is-bg">
+            @@include('blocks/block.one.html')
+            @@include('blocks/block.two.html')
+            @@include('blocks/block.three.html')
+        </div>
+        @@include('blocks/block.carousel.html')
+        <div class="background__two __dd--is-bg">
+            @@include('blocks/block.four.html')
+        </div>
     </div>
-    <!-- <script src="dist/js/jquery-3.3.1.min.js"></script> -->
+    <script src="dist/js/jquery-3.3.1.min.js"></script>
     <!-- <script src="dist/js/bundle-min.js"></script> -->
+    <script src="dist/js/slick.min.js"></script>
     <script src="dist/js/main.js"></script>
 </body>
 </html>
