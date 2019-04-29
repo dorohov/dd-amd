@@ -18,5 +18,27 @@
             ]
        })
 
+       var svgs = [
+           'svg-one', 
+           'svg-two', 
+           'svg-three', 
+           'svg-browser', 
+           'svg-phone1',
+           'svg-phone2',
+           'svg-phone3'
+        ]
+
+       for(var i = 0; i < svgs.length; i++) {
+        new Vivus(
+            svgs[i],
+            {
+              type: 'delayed',
+              duration: 400,
+              animTimingFunction: Vivus.EASE,
+              start: 'inViewport'
+            },
+          );
+       }
+
     })
 })(jQuery);

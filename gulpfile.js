@@ -146,6 +146,8 @@ function createBundleCss() {
 function createBundleJs() {
     return gulp.src([
                 './dist/js/slick.min.js',
+                './dist/js/svg4everybody.min.js',
+                './dist/js/vivus.min.js',
                 './dist/js/main.js'
             ])
             .pipe(sourcemaps.init())
@@ -176,6 +178,6 @@ gulp.task('build', function() {
 
 gulp.task('default', gulp.series(
     gulp.parallel('html', 'css', 'js', 'svgMap', 'imageMinify'),
-    // gulp.parallel('html', 'css', 'js', 'createBundleJs', 'svgMap', 'imageMinify'),
+    gulp.parallel('html', 'css', 'js', 'createBundleJs', 'svgMap', 'imageMinify'),
     gulp.parallel('build', 'browser_sync')
 ))
