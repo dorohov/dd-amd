@@ -32,9 +32,9 @@
         new Vivus(
             svgs[i],
             {
-              type: 'delayed',
-              duration: 400,
-              animTimingFunction: Vivus.EASE,
+              type: 'sync',
+              duration: 300,
+              animTimingFunction: Vivus.EASE_OUT_BOUNCE,
               start: 'inViewport'
             },
           );

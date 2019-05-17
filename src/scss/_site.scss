@@ -6,39 +6,43 @@
     background-image: url(../../img/bg2.jpg);
 }
 
-.heading {
-    font-family: 'DINCondensedC';
-    font-size: 52px;
-    line-height: 53px;
-    text-transform: uppercase;
+.__dd {
+    .heading {
+        font-family: 'DINCondensedC' !important;
+        font-size: 52px;
+        line-height: 53px;
+        text-transform: uppercase;
+    }
 }
 
-.link {
-    display: inline-block;
-    position: relative;
-    color: #158AEE;
-    text-transform: uppercase;
-    font-family: 'DINCondensedC';
-    font-size: 18px;
-    line-height: 18px;
-    letter-spacing: 0.12em;
-    padding: 10px 0;
-    white-space: nowrap;
-    &::after {
-        content: '';
-        height: 3px;
-        left: 0;
-        right: 0;
-        margin: 0 auto;
-        background: #158AEE;
-        position: absolute;
-        top: 100%;
-        width: 100%;
-        transition: .25s all ease;
-    }
-    &:hover {
+.__dd {
+    .link {
+        display: inline-block;
+        position: relative;
+        color: #158AEE;
+        text-transform: uppercase;
+        font-family: 'DINCondensedC';
+        font-size: 18px;
+        line-height: 18px;
+        letter-spacing: 0.12em;
+        padding: 10px 0;
+        white-space: nowrap;
         &::after {
-            width: 20%;
+            content: '';
+            height: 3px;
+            left: 0;
+            right: 0;
+            margin: 0 auto;
+            background: #158AEE;
+            position: absolute;
+            top: 100%;
+            width: 100%;
+            transition: .25s all ease;
+        }
+        &:hover {
+            &::after {
+                width: 20%;
+            }
         }
     }
 }
@@ -289,9 +293,11 @@
 }
 
 @media (max-width: 1200px) {
-    .heading {
-        font-size: 32px;
-        line-height: 33px;
+    .__dd {
+        .heading {
+            font-size: 32px;
+            line-height: 33px;
+        }
     }
     .__dd {
         &__block {
